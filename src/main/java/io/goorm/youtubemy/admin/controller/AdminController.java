@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
@@ -18,8 +19,9 @@ public class AdminController {
         return "admin/admin/list";
     }
 
-    @GetMapping("/admins/{memberId}")
-    public String view(Model model) {
+    @GetMapping("/admins/{adminSeq}")
+    public String view(@PathVariable Long adminSeq, Model model) {
+
         return "admin/admin/view";
     }
 
@@ -31,6 +33,7 @@ public class AdminController {
 
     @GetMapping("/modify")
     public String modify(Model model) {
+
         return "admin/admin/modify";
     }
 
