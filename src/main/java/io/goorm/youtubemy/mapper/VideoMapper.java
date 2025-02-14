@@ -1,6 +1,6 @@
 package io.goorm.youtubemy.mapper;
 
-import io.goorm.youtubemy.vo.Video;
+import io.goorm.youtubemy.domain.Video;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,11 +11,18 @@ public interface VideoMapper {
 
     List<Video> selectIndex();
 
-    Video selectById(@Param("seq") Long seq);
+    List<Video> selectAll();
 
-    int insert(@Param("board") Video board);
+    Video selectById(@Param("videoSeq") Long seq);
 
-    int update(@Param("board") Video board);
+    int insert(@Param("video") Video video);
 
-    int delete(@Param("seq") Long seq);
+    int update(@Param("video") Video video);
+
+    int updatePublishYn(@Param("video") Video video);
+
+    int updateDeleteYn(@Param("video") Video video);
+
+    int delete(@Param("videoSeq") Long seq);
+
 }

@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("/admin")
-public class MemberController {
+@RequestMapping("/mgr")
+public class MemberController { 
 
     @GetMapping("/members")
     public String list(Model model) {
 
-        return "admin/members/list";
+        return "mgr/members/list";
     }
 
     @GetMapping("/members/{memberSeq}")
     public String view(@PathVariable Long memberSeq, Model model) {
 
-        return "admin/members/view";
+        return "mgr/members/view";
     }
 }
