@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.goorm.youtubemy.mapper.VideoMapper">
+
+    <!-- 게시글 목록 조회 -->
+    <select id="selectAll" resultType="io.goorm.youtubemy.vo.Video">
+        SELECT * FROM VIDEOS
+        WHERE publish_yn = 1
+        ORDER BY seq desc
+    </select>
+
+    <select id="selectById" parameterType="io.goorm.youtubemy.vo.Video">
+        SELECT * FROM VIDEOS WHERE video_seq = #{video_seq}
+    </select>
+
+    <!-- 게시글 삽입 -->
+    <insert id="insert" parameterType="io.goorm.youtubemy.vo.Video">
+        INSERT INTO VIDEOS (video, video_thumnail, member_seq)
+        VALUES (#{video.video}, #{video.video_thumnail}, #{video.member_seq})
+    </insert>
+
+    <!-- 게시글 수정 -->
+    <update id="update" parameterType="io.goorm.youtubemy.vo.Video">
+        UPDATE VIDEOS
+        SET video = #{video.video}, video_thumnail = #{video.video_thumnail}
+        WHERE video_seq = #{video.video_seq}
+    </update>
+
+
+    <update id="updatePublish" parameterType="io.goorm.youtubemy.vo.Video">
+        UPDATE VIDEOS
+        SET publish_Yn = #{video.publishYn}
+        WHERE video_seq = #{video.video_seq}
+    </update>
+
+    <update id="updateDelete" parameterType="io.goorm.youtubemy.vo.Video">
+        UPDATE VIDEOS
+        SET delete_Yn = #{video.deleteYn}
+        WHERE video_seq = #{video.video_seq}
+    </update>
+
+    <!-- 게시글 삭제 -->
+    <delete id="delete" parameterType="long">
+        DELETE FROM VIDEOS WHERE video_seq = #{video.video_seq}
+    </delete>
+
+</mapper>
