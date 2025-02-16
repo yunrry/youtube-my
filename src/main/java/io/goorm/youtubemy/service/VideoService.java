@@ -20,7 +20,7 @@ public class VideoService {
         this.videoMapper = videoMapper;
     }
 
-    public List<Video> findIndex() {
+    public List<Video> selectIndex() {
 
         return videoMapper.selectIndex();
     }

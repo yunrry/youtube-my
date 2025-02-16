@@ -19,7 +19,7 @@ public class IndexController {
     @GetMapping("/")
     public String  index(Model model) {
 
-        model.addAttribute("videos", videoService.findIndex());
+        model.addAttribute("videos", videoService.selectIndex());
 
         return "index";
     }

@@ -21,7 +21,7 @@ public class TestController {
     @GetMapping("/")
     public String  list(Model model) {
 
-        model.addAttribute("videos", videoService.findIndex());
+        model.addAttribute("videos", videoService.selectIndex());
         model.addAttribute("title", "home title");
 
         return "test/home";
