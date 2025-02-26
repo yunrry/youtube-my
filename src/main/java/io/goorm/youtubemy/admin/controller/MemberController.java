@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
-@Controller
+@Controller("adminMemberController")
 @RequestMapping("/mgr")
-public class MemberController { 
+public class MemberController {
 
     @GetMapping("/members")
     public String list(Model model) {

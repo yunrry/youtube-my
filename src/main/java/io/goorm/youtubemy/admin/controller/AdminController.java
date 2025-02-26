@@ -1,7 +1,8 @@
 package io.goorm.youtubemy.admin.controller;
 
+import io.goorm.youtubemy.admin.service.AdminService;
 import io.goorm.youtubemy.mapper.AdminMapper;
-import io.goorm.youtubemy.domain.Admin;
+import io.goorm.youtubemy.vo.domain.Admin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ public class AdminController {
     AdminMapper adminMapper;
 
     @Autowired
+    private AdminService adminService;
+
+    @Autowired
     public AdminController(AdminMapper adminMapper) {
         this.adminMapper = adminMapper;
     }
@@ -25,7 +29,7 @@ public class AdminController {
     @GetMapping("/admins")
     public String list(Model model) {
 
-       // model.addAttribute("posts", adminSe.getBoards());
+        model.addAttribute("posts", adminService.findAll());
 
         return "mgr/admin/list";
     }
@@ -34,7 +38,7 @@ public class AdminController {
     @GetMapping("/admins/{adminSeq}")
     public String  get(@PathVariable Long adminSeq, Model model) {
 
-        //model.addAttribute("posts", boardService.getBoards());
+        model.addAttribute("posts", adminService.find(adminSeq));
 
         return "mgr/admin/view";
     }
@@ -43,7 +47,7 @@ public class AdminController {
     @GetMapping("/admins/create")
     public String  createForm(Model model) {
 
-        //model.addAttribute("posts", boardService.getBoards());
+
 
         return "mgr/admin/create";
     }
@@ -53,7 +57,9 @@ public class AdminController {
     @PostMapping("/admins")
     public String create(@ModelAttribute Admin admin, Model model) {
 
-        return "redirect:/mgr/admins";
+        model.addAttribute("posts", adminService.save(admin));
+
+        return "redirect:/mgr/admins/list";
     }
 
 

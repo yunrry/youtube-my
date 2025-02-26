@@ -1,6 +1,6 @@
 package io.goorm.youtubemy.mapper;
 
-import io.goorm.youtubemy.domain.Admin;
+import io.goorm.youtubemy.vo.domain.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

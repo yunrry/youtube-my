@@ -2,14 +2,15 @@ package io.goorm.youtubemy.service;
 
 
 import io.goorm.youtubemy.mapper.VideoMapper;
-import io.goorm.youtubemy.domain.Video;
+import io.goorm.youtubemy.vo.domain.Video;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Slf4j
-@org.springframework.stereotype.Service
+@Service
 public class VideoService {
 
     @Autowired

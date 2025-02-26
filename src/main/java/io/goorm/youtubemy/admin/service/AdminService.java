@@ -2,7 +2,7 @@ package io.goorm.youtubemy.admin.service;
 
 
 import io.goorm.youtubemy.mapper.AdminMapper;
-import io.goorm.youtubemy.domain.Admin;
+import io.goorm.youtubemy.vo.domain.Admin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
